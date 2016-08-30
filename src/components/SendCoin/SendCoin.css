@@ -1,0 +1,47 @@
+.SendCoin {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid;
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  color: #16325c;
+
+  label {
+    white-space: nowrap;
+    flex-basis: 100%;
+
+  }
+
+  .RecipientAddress {
+    flex: 1;
+  }
+
+  .SendAmount {
+    flex: 1;
+    margin-right: .8em;
+  }
+
+  input {
+    margin-bottom: 1em;
+    font-size:1em;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    padding: .5rem;
+    color: #16325c;
+    border: 1px solid #d8dde6;
+    border-radius: .25rem;
+  }
+
+  .SendBtn {
+    font-size:1em;
+    color: #0070d2;
+    line-height:1;
+    padding: .6rem 1rem;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #d8dde6;
+    background-color: #fff;
+  }
+}

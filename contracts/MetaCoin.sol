@@ -9,7 +9,7 @@ contract MetaCoin {
 	mapping (address => uint) balances;
 
 	function MetaCoin() {
-		balances[tx.origin] = 50000;
+		balances[tx.origin] = 10000;
 	}
 
 	function sendCoin(address receiver, uint amount) returns(bool sufficient) {

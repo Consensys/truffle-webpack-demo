@@ -1,4 +1,5 @@
 var path = require('path');
+var precss            = require('precss')
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -89,7 +90,7 @@ module.exports = {
     useEslintrc: false
   },
   postcss: function() {
-    return [autoprefixer];
+    return [precss, autoprefixer];
   },
   plugins: [
     new HtmlWebpackPlugin({

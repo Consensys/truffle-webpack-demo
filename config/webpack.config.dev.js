@@ -48,10 +48,6 @@ module.exports = {
       contracts: path.resolve('contracts')
     }
   },
-  resolveLoader: {
-    root: [ nodeModulesPath, path.resolve('lib/webpack-loaders') ],
-    moduleTemplates: ['*-loader']
-  },
   module: {
     preLoaders: [
       {
@@ -86,7 +82,7 @@ module.exports = {
       },
       {
         test: /\.sol/,
-        loader: 'truffle-solidity?web3_rpc_uri='+process.env.WEB3_RPC_LOCATION+'&migrations_directory='+path.resolve(__dirname, '../migrations' )
+        loader: 'truffle-solidity'
       }
     ]
   },

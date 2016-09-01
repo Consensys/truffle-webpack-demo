@@ -1,4 +1,4 @@
-## Truffle + Webpack Boilerplate 2016
+## Truffle + Webpack Demo App
 
 ![MetaCoin Example](https://github.com/ConsenSys/truffle-webpack-demo/blob/master/docs/images/metacoin.jpg?raw=true)
 

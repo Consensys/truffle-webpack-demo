@@ -12,7 +12,7 @@ This repo uses JS Standard.
 
 0. Clone this repo
 0. `npm install`
-0. Make sure `testrpc` is running in it default port. Then:
+0. Make sure `testrpc` is running on its default port. Then:
   - `WEB3_RPC_LOCATION=http://localhost:8545 npm run start` - Starts the development server
   - `WEB3_RPC_LOCATION=http://localhost:8545 npm run build` - Generates a build
   - `truffle test` - Run the rest suite

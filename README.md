@@ -12,3 +12,4 @@ Make sure `testrpc` is running in it default port. Then:
 
 - `WEB3_RPC_LOCATION=http://localhost:8545 npm run start` - Starts the development server
 - `WEB3_RPC_LOCATION=http://localhost:8545 npm run build` - Generates a build
+- `truffle test` - Run the rest suite

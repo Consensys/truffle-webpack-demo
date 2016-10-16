@@ -4,7 +4,7 @@
 
 This is a simple Dapp boilerplate utilising Truffle and Webpack. Fire up the app, then try changing the value of the default balance in `contracts/MetaCoin.sol` from `10000` to `50000`and see the contract be recompiled, hot reloaded and the value updated.
 
-Note: Make sure you are running at least `geth 1.4.17-stable-3885907c`
+Note: Make sure you are running at least `geth 1.4.17-stable-3885907c`, or in some way be running at least `solc ^0.4.0 `
 
 ### Coding Style
 

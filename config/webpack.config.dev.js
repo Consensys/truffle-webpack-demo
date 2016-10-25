@@ -101,8 +101,7 @@ module.exports = {
     }),
     new webpack.ProvidePlugin(provided),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"development"',
-      WEB3_RPC_LOCATION: '"' + process.env.WEB3_RPC_LOCATION + '"'
+      'process.env.NODE_ENV': '"development"'
     }),
     new webpack.HotModuleReplacementPlugin()
   ]

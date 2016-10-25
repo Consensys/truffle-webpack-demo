@@ -37,6 +37,7 @@ class AccountListContainer extends Component {
     this.props.web3.eth.getAccounts(function (err, accs) {
       if (err != null) {
         window.alert('There was an error fetching your accounts.')
+        console.error(err)
         return
       }
 

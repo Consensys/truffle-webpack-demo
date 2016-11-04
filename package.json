@@ -36,7 +36,7 @@
     "rimraf": "2.5.3",
     "style-loader": "0.13.1",
     "temp": "^0.8.3",
-    "truffle-solidity-loader": "0.0.7",
+    "truffle-solidity-loader": "0.0.8",
     "url-loader": "0.5.7",
     "web3": "^0.17.0-alpha",
     "webpack": "1.13.1",

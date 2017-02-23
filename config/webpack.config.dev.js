@@ -3,7 +3,6 @@ var autoprefixer      = require('autoprefixer')
 var webpack           = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var precss            = require('precss')
-var autoprefixer      = require('autoprefixer')
 
 // TODO: hide this behind a flag and eliminate dead code on eject.
 // This shouldn't be exposed to the user.
@@ -45,7 +44,9 @@ module.exports = {
     root: srcPath,
     extensions: ['', '.js'],
     alias: {
-      contracts: path.resolve('contracts')
+      contracts: path.resolve('contracts'),
+      // config: require('../truffle').networks.development
+      config: path.resolve('truffle.js')
     }
   },
   module: {
@@ -82,7 +83,7 @@ module.exports = {
       },
       {
         test: /\.sol/,
-        loader: 'truffle-solidity'
+        loaders: ['json-loader', 'truffle-solidity-loader?migrations_directory=' + path.resolve(__dirname, '../migrations') + '&network=development&contracts_build_directory=' + path.resolve(__dirname, '../dist/contracts') ]
       }
     ]
   },
@@ -101,8 +102,10 @@ module.exports = {
     }),
     new webpack.ProvidePlugin(provided),
     new webpack.DefinePlugin({
+      'myEnv': JSON.stringify(require('../truffle').networks.development),
       'process.env.NODE_ENV': '"development"'
     }),
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new webpack.HotModuleReplacementPlugin()
   ]
 }

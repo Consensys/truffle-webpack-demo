@@ -36,13 +36,13 @@
     "rimraf": "2.5.3",
     "style-loader": "0.13.1",
     "temp": "^0.8.3",
-    "truffle-solidity-loader": "0.0.8",
+    "truffle-contract": "^1.1.10",
+    "truffle-solidity-loader": "git+https://github.com/sogoiii/truffle-solidity-loader.git#1f1e213d52f033b6863218307b8968ae68220fe1",
     "url-loader": "0.5.7",
     "web3": "^0.17.0-alpha",
     "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1"
   },
-  "dependencies": {},
   "scripts": {
     "start": "node ./scripts/start.js",
     "build": "node ./scripts/build.js"

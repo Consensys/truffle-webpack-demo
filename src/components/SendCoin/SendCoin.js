@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import './SendCoin.css'
 
-import MetaCoin from 'contracts/MetaCoin.sol';
+import Contract from 'truffle-contract'
+import MetaCoinArtifact from 'contracts/MetaCoin.sol';
+const MetaCoin = Contract(MetaCoinArtifact)
+
 import Web3 from 'web3';
 
 const provider = new Web3.providers.HttpProvider('http://localhost:8545')
@@ -16,13 +19,18 @@ class SendCoin extends Component {
 
   handleSendMeta(e) {
     e.preventDefault()
-    var meta = MetaCoin.deployed();
-    console.log(`Recipient Address: ${this.recipientAddressInput.value}`)
-    meta.sendCoin(this.recipientAddressInput.value, this.sendAmountInput.value, {from: this.props.sender}).then(function() {
-      console.log('SENT')
-    }).catch(function(e) {
-      console.log(e);
-    });
+
+
+    MetaCoin.deployed()
+            .then(meta => {
+              console.log(`Recipient Address: ${this.recipientAddressInput.value}`)
+              return meta.sendCoin(this.recipientAddressInput.value, this.sendAmountInput.value, {from: this.props.sender})
+            })
+            .then(function() {
+              console.log('SENT')
+            }).catch(function(e) {
+              console.log(e);
+            });
   }
 
   render() {

@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import AccountList from 'components/AccountList/AccountList'
 import SendCoin from 'components/SendCoin/SendCoin'
 
-import MetaCoin from 'contracts/MetaCoin.sol';
+import Contract from 'truffle-contract'
+import MetaCoinArtifact from 'contracts/MetaCoin.sol';
+const MetaCoin = Contract(MetaCoinArtifact)
+
 import Web3 from 'web3';
 
 const provider = new Web3.providers.HttpProvider('http://localhost:8545')
@@ -22,15 +25,17 @@ class AccountListContainer extends Component {
   }
 
   _getAccountBalance (account) {
-    var meta = MetaCoin.deployed()
-    return new Promise((resolve, reject) => {
-      meta.getBalance.call(account, {from: account}).then(function (value) {
-        resolve({ account: value.valueOf() })
-      }).catch(function (e) {
-        console.log(e)
-        reject()
+    return MetaCoin.deployed()
+      .then(meta => {
+        return meta.getBalance.call(account, {from: account})
       })
-    })
+      .then(function (value) {
+        return { account: value.valueOf() }
+      })
+      .catch(function (e) {
+        console.log(e)
+        throw e
+      })
   }
 
   _getAccountBalances () {

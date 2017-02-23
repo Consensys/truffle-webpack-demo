@@ -1,8 +1,14 @@
 module.exports = {
-  rpc: {
-    host: 'localhost',
-    port: 8545,
-    gas: 190000
-  },
-  migrations_directory: './migrations'
-}
+  networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*" // Match any network id
+    },
+    production: {
+      host: "localhost",
+      port: 8546,
+      network_id: "*"
+    }
+  }
+};

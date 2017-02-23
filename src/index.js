@@ -5,24 +5,21 @@ import Web3 from 'web3'
 
 import './index.css'
 
-import truffleConfig from '../truffle.js'
+var web3Location = `http://${myEnv.host}:${myEnv.port}` //this is defined in webpack DefinePlugin
 
-var web3Location = `http://${truffleConfig.rpc.host}:${truffleConfig.rpc.port}`
-
-window.addEventListener('load', function() {                    
+window.addEventListener('load', function() {
   var web3Provided;
-  // Supports Metamask and Mist, and other wallets that provide 'web3'.      
-  if (typeof web3 !== 'undefined') {                            
-    // Use the Mist/wallet provider.     
-    // eslint-disable-next-line                       
-    web3Provided = new Web3(web3.currentProvider);               
-  } else {                                                      
+  // Supports Metamask and Mist, and other wallets that provide 'web3'.
+  if (typeof web3 !== 'undefined') {
+    // Use the Mist/wallet provider.
+    // eslint-disable-next-line
+    web3Provided = new Web3(web3.currentProvider);
+  } else {
     web3Provided = new Web3(new Web3.providers.HttpProvider(web3Location))
-  }   
-  
+  }
+
   ReactDOM.render(
     <App web3={web3Provided} />,
     document.getElementById('root')
-  )                                                                                                                    
+  )
 });
-

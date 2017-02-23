@@ -111,6 +111,7 @@ module.exports = {
       }
     }),
     new webpack.DefinePlugin({
+      'myEnv': JSON.stringify(require('../truffle').networks.production),
       'process.env.NODE_ENV': '"production"',
       WEB3_RPC_LOCATION: '"' + process.env.WEB3_RPC_LOCATION + '"'
     }),

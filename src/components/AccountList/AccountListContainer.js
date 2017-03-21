@@ -5,8 +5,6 @@ import SendCoin from 'components/SendCoin/SendCoin'
 import MetaCoin from 'contracts/MetaCoin.sol';
 import Web3 from 'web3';
 
-const provider = new Web3.providers.HttpProvider('http://localhost:8545')
-MetaCoin.setProvider(provider);
 
 class AccountListContainer extends Component {
   constructor(props) {
@@ -19,6 +17,10 @@ class AccountListContainer extends Component {
 
     this._getAccountBalance = this._getAccountBalance.bind(this)
     this._getAccountBalances = this._getAccountBalances.bind(this)
+  }
+
+  componentWillMount(){
+    MetaCoin.setProvider(this.props.web3.currentProvider);    
   }
 
   _getAccountBalance (account) {

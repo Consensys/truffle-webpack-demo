@@ -3,7 +3,6 @@ var autoprefixer      = require('autoprefixer')
 var webpack           = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var precss            = require('precss')
-var autoprefixer      = require('autoprefixer')
 
 // TODO: hide this behind a flag and eliminate dead code on eject.
 // This shouldn't be exposed to the user.
